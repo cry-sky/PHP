@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<style type="text/css">
+		form{
+			width: 50%;
+			margin: 50px auto;
+			box-shadow: 1px 1px 5px rgba(0,0,0,.1);
+			padding: 15px;
+			position: relative;
+		}
+		label{
+			position: 	relative;
+			width: 100%;
+			display: 	block;		
+		}
+		span{
+			position: 	absolute;
+			background-color: 	#fff;
+			color: gray;
+			left:10px;
+			top: -4px;
+			padding: 0 3px;
+		}
+		input,
+		textarea{
+			width: 97%;
+			margin:10px auto;
+			height: 25px;
+			border: solid 2px rgba(0,0,255,.2);
+			border-radius: 3px;
+			line-height: 25px;
+			padding: 0 5px;
+		} 
+		textarea{
+
+			height: 50px;	
+			resize: none;
+		}
+		.send{
+			width: 30%;
+			border-radius: 5%;
+			border: transparent;
+			color: gray;
+			margin-right: 0;
+			display: block;
+		}
+	</style>
+    <form action="send.php" method="POST">
+    <label>
+    	<span>Name</span>
+    	<input type="text" name="name">
+    </label>
+    <label>
+    	<span>Topic</span>
+    	<input type="text" name="topic">
+    </label>
+    <label>
+    	<span>Email</span>
+    	<input type="email" name="email">
+    </label>
+     <label>
+    	<span>Message</span>
+    	<textarea name="message"></textarea>
+    </label>
+    <input class="send" type="submit" name="submit" value="SEND">
+    </form>
+</body>
+</html>
