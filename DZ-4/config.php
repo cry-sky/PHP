@@ -1,0 +1,3 @@
+<?php
+    $userDir="uploads/";
+?>
