@@ -28,14 +28,11 @@ if(isset($_POST["submit"])){
                 echo $_FILES["uploaded"]["name"][$i] . " " . "Помилка: відсутня дерикторія" . "</br>";
                 exit;
             break;
-
         }
+        
         if(!empty($_FILES["uploaded"]["name"])){  
             $sizebln='';
             $typebln='';
-            if($typebln<1){
-                echo $_FILES["uploaded"]["name"][$i] . " " . "Помилка: невірний форма файла" . "</br>"; 
-            }
             if($_FILES["uploaded"]["size"][$i]<$size){
                 $sizebln=1;
             }else{
@@ -45,7 +42,7 @@ if(isset($_POST["submit"])){
 
             for($j=0;$j<count($typeFiles);$j++){
                 if($_FILES["uploaded"]["type"][$i]==$typeFiles[$j]){
-                    $typebln='';
+                    $typebln=1;
                     $type='';
                     
                     switch($_FILES["uploaded"]["type"][$i]){
@@ -74,6 +71,9 @@ if(isset($_POST["submit"])){
             }
         }else{
             echo "файл не вибрано";    
+        }
+        if($typebln<1){
+            echo $_FILES["uploaded"]["name"][$i] . " " . "Помилка: невірний формат файла" . "</br>"; 
         }
     }
 }
