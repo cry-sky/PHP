@@ -1,0 +1,7 @@
+{
+    "name": "my/dz",
+    "require": {
+        "keboola/csv": "^2.1",
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
