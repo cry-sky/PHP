@@ -10,9 +10,9 @@ foreach($csvFile as $row) {
 
 }
 
-use GuzzleHttp\TransferStats;
 
 $client = new GuzzleHttp\Client();
+
 
 echo (
     "<table>
@@ -42,13 +42,9 @@ foreach($csvFile as $row) {
          <td>" . gethostbyname($domain) . "</td>
          <td>$rank</td>"
     );
-    $client->request('GET', $domain, [
-        'on_stats' => function (TransferStats $stats) {
-            echo "<td>".$stats->getResponse()->getStatusCode()."</td>"."<td>last update</td>"."</tr>";
-        }
-    ]);
+    $response = $client->request('GET', gethostbyname($domain), ['timeout' => 3.14]);
+    echo "<td>".$response->getStatusCode()."</td>"."<td>last update</td>"."</tr>";
 }
-
 echo (
     "</tbody>
     </table> "
